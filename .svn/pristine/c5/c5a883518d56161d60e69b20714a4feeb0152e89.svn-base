@@ -1,0 +1,15 @@
+import Index from '@/view/Index'
+
+let routes = [
+  {
+    path: '',
+    name: '',
+    component: Index
+  },{
+      path: '/index',
+      name: 'index',
+      component: Index
+  },
+]
+
+export default routes

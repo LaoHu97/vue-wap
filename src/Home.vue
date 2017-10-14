@@ -1,0 +1,55 @@
+<template lang="html">
+  <div>
+    <mt-header :title="this.$route.name">
+      <router-link to="/" slot="left" v-if="this.$route.path!='/index'">
+        <mt-button icon="back">返回{{ this.$route.query.id }}</mt-button>
+      </router-link>
+      <mt-button slot="right" icon="more" @click.native="sheetVisible=true"></mt-button>
+    </mt-header>
+    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
+    <!-- <transition name="slide-fade"> -->
+      <router-view/>
+    <!-- </transition> -->
+    <mt-tabbar v-model="selected" fixed>
+      <mt-tab-item id="index">
+        <i slot="icon" class="iconfont">&#xe702;</i> 首页
+      </mt-tab-item>
+      <mt-tab-item id="sort">
+        <i slot="icon" class="iconfont">&#xe6dd;</i> 暂无
+      </mt-tab-item>
+      <mt-tab-item id="find">
+        <i slot="icon" class="iconfont">&#xe6dd;</i> 暂无
+      </mt-tab-item>
+      <mt-tab-item id="my">
+        <i slot="icon" class="iconfont">&#xe6dd;</i> 暂无
+      </mt-tab-item>
+    </mt-tabbar>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      selected: 'index',
+      sheetVisible: false,
+      actions: [{
+        name: '分享',
+        method: this.share
+      }],
+    }
+  }
+}
+</script>
+
+<style lang="css">
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .8s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+</style>

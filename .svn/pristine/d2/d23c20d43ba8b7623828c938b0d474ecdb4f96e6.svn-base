@@ -1,0 +1,44 @@
+<template lang="html">
+  <div>
+    <mt-header fixed :title="this.$route.name">
+      <mt-button icon="back" slot="left" v-if="this.$route.path!='/index'" @click.native="clickBack">返回{{ this.$route.query.id }}</mt-button>
+      <mt-button slot="right" icon="menu" @click.native="sheetVisible=true"><i class="iconfont">&#xe60a;</i></mt-button>
+    </mt-header>
+    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
+    <!-- <transition name="slide-fade"> -->
+      <router-view/>
+    <!-- </transition> -->
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      selected: 'index',
+      sheetVisible: false,
+      actions: [{
+        name: '分享',
+        method: this.share
+      }],
+    }
+  },
+  methods: {
+    clickBack(){
+       this.$router.go(-1)
+    }
+  },
+}
+</script>
+
+<style lang="css">
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .8s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+</style>

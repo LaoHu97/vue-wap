@@ -6,7 +6,16 @@
       <mt-swipe-item class="slide2">2</mt-swipe-item>
       <mt-swipe-item class="slide3">3</mt-swipe-item>
     </mt-swipe>
-    <ul class="page-infinite-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50" >
+    <mt-palette-button content="+" @expand="main_log('expand')" @expanded="main_log('expanded')" @collapse="main_log('collapse')"
+      direction="lt" class="pb" :radius="100" ref="target_3"
+      style="right:30px;">
+      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(1)"></div>
+      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(2)"></div>
+      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(3)"></div>
+      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(4)"></div>
+      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(5)"></div>
+    </mt-palette-button>
+    <ul class="page-infinite-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50">
       <li v-for="item in list" class="page-infinite-listitem" v-on:click.stop="clickVideoList(item)">
         <img src="http://fakeimg.pl/300/" alt="" width="100%">
         <div class="item-bottom">
@@ -24,7 +33,6 @@
 </template>
 
 <script>
-import { getUserListPage } from '../../api/api';
 export default {
   data() {
     return {
@@ -39,7 +47,13 @@ export default {
 
   },
   methods: {
-
+    main_log(val) {
+      console.log('main_log', val);
+    },
+    sub_log(val) {
+      console.log('sub_log', val);
+      this.$refs.target_1.collapse();
+    },
     //分享
     share(){
 
@@ -50,39 +64,25 @@ export default {
     },
     //上划加载更多
     loadMore() {
-      // this.loading = true;
-      let para = {
-					page: this.list.length / 10 + 1,
-					rows: 10
-			};
-      getUserListPage(para).then((res)=>{
-        setTimeout(() => {
-          if (res.data.data.length) {
-            this.list = this.list.concat(res.data.data);
-            if (this.list.length == res.data.total) {
-              this.loading = false;
-            }
-          } else {
-            this.loading = false;
-          }
-        }, 500);
-      })
+      this.loading = true;
+      setTimeout(() => {
+        const temp = [];
+        for (let i = this.list.length + 1; i <= this.list.length + 6; i++) {
+          temp.push(i);
+        }
+        this.list = this.list.concat(temp);
+        this.loading = false;
+      }, 2500);
     },
   },
   mounted() {
     this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
-    // let para = {
-    //     page: this.list.length / 10 + 1,
-    //     rows: 10
-    // };
-    // getUserListPage(para).then((res)=>{
-    //     if (res.data.data.length) {
-    //       this.list = res.data.data;
-    //       this.loading = false;
-    //     } else {
-    //       this.loading = false;
-    //     }
-    // })
+    const temp = [];
+    for (let i = this.list.length + 1; i <= this.list.length + 6; i++) {
+      temp.push(i);
+    }
+    this.list = this.list.concat(temp);
+
   }
 }
 </script>
@@ -169,5 +169,25 @@ li {
   overflow:hidden;          /* 内容超出宽度时隐藏超出部分的内容 */
   text-overflow:ellipsis;
 }
-
+.pb{
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: #FFF;
+  position:fixed;
+  bottom: 30px;
+}
+.my-icon-button{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background-color:#26a2ff;
+  color: #fff;
+  line-height:30px;
+  text-align:center;
+}
+.mint-main-button{
+  color: #000;
+  background-color:#26a2ff;
+}
 </style>

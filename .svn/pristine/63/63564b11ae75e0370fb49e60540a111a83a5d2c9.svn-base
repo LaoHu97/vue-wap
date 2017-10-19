@@ -6,7 +6,7 @@
       <mt-swipe-item class="slide2">2</mt-swipe-item>
       <mt-swipe-item class="slide3">3</mt-swipe-item>
     </mt-swipe>
-    <ul class="page-infinite-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50" >
+    <ul class="page-infinite-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50">
       <li v-for="item in list" class="page-infinite-listitem" v-on:click.stop="clickVideoList(item)">
         <img src="http://fakeimg.pl/300/" alt="" width="100%">
         <div class="item-bottom">
@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import { getUserListPage } from '../../api/api';
 export default {
   data() {
     return {
@@ -39,7 +38,6 @@ export default {
 
   },
   methods: {
-
     //分享
     share(){
 
@@ -50,39 +48,25 @@ export default {
     },
     //上划加载更多
     loadMore() {
-      // this.loading = true;
-      let para = {
-					page: this.list.length / 10 + 1,
-					rows: 10
-			};
-      getUserListPage(para).then((res)=>{
-        setTimeout(() => {
-          if (res.data.data.length) {
-            this.list = this.list.concat(res.data.data);
-            if (this.list.length == res.data.total) {
-              this.loading = false;
-            }
-          } else {
-            this.loading = false;
-          }
-        }, 500);
-      })
+      this.loading = true;
+      setTimeout(() => {
+        const temp = [];
+        for (let i = this.list.length + 1; i <= this.list.length + 6; i++) {
+          temp.push(i);
+        }
+        this.list = this.list.concat(temp);
+        this.loading = false;
+      }, 55500);
     },
   },
   mounted() {
     this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
-    // let para = {
-    //     page: this.list.length / 10 + 1,
-    //     rows: 10
-    // };
-    // getUserListPage(para).then((res)=>{
-    //     if (res.data.data.length) {
-    //       this.list = res.data.data;
-    //       this.loading = false;
-    //     } else {
-    //       this.loading = false;
-    //     }
-    // })
+    const temp = [];
+    for (let i = this.list.length + 1; i <= this.list.length + 6; i++) {
+      temp.push(i);
+    }
+    this.list = this.list.concat(temp);
+
   }
 }
 </script>
@@ -143,7 +127,6 @@ li {
 }
 .page-infinite-wrapper{
   margin-top: -1px;
-  margin-top: 40px;
   /*overflow: scroll;*/
 }
 .item-bottom{
@@ -169,5 +152,4 @@ li {
   overflow:hidden;          /* 内容超出宽度时隐藏超出部分的内容 */
   text-overflow:ellipsis;
 }
-
 </style>

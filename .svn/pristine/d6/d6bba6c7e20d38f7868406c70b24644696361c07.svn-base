@@ -19,22 +19,18 @@
 </template>
 
 <script>
-import { MessageBox } from 'mint-ui';
 export default {
   data() {
     return {
       selected: 'index',
       sheetVisible: false,
       actions: [{
-        name: '联系站长',
-        method: this.contact
+        name: '分享',
+        method: this.share
       }],
     }
   },
   methods: {
-    contact(){
-      MessageBox('微信号：lhsgdd', '备注：“联系站长”');
-    },
     clickBack(){
        this.$router.go(-1)
     },

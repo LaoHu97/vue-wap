@@ -46,9 +46,14 @@ export default {
     }
   },
   created: function () {
-    // this.openToast()
+
   },
   methods: {
+
+    //分享
+    share(){
+
+    },
     //点击视频列表
     clickVideoList(scope){
       this.$router.push({ path: '/details', query: { id: scope }});
@@ -82,7 +87,7 @@ export default {
     },
   },
   mounted() {
-
+    this.openToast()
   }
 }
 </script>

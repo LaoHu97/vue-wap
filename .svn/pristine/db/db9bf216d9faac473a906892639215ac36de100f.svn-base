@@ -71,7 +71,7 @@ export default {
           this.imageUrl = res.data.data.imageUrl;
           this.addr = res.data.data.addr;
           this.title = res.data.data.title;
-          this.profiles = JSON.parse(res.data.data.profiles)[0];
+          this.profiles = res.data.data.profiles;
           this.times = res.data.data.times;
           this.average = res.data.data.average;
           this.videoUrlPass = res.data.data.videoUrlPass;

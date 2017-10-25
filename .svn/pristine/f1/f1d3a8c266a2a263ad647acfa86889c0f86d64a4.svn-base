@@ -22,7 +22,7 @@
       </div>
       <div class="baidu-sources">
         <a :href="videoUrl">
-          <mt-button size="large" type="default" style="border-radius:100px">百度网盘资源：<span class="btn-class">{{title}}</span> <mt-badge size="normal" type="primary">{{videoUrlPass}}</mt-badge></mt-button>
+          <mt-button size="large" type="default" style="border-radius:100px">百度网盘资源：{{title}} <mt-badge size="normal" type="primary">{{videoUrlPass}}</mt-badge></mt-button>
         </a>
       </div>
       <hr></hr>
@@ -182,15 +182,5 @@ export default {
       margin: 0 28px;
     }
   }
-}
-.btn-class{
-  width: 100px;
-  display:inline-block;
-  word-break:keep-all;      /* 不换行 */
-  white-space:nowrap;       /* 不换行 */
-  overflow:hidden;          /* 内容超出宽度时隐藏超出部分的内容 */
-  text-overflow:ellipsis;
-  vertical-align: middle;
-  margin-bottom: 4px;
 }
 </style>

@@ -22,7 +22,7 @@
       </div>
       <div class="baidu-sources">
         <a :href="videoUrl">
-          <mt-button size="large" type="default" style="border-radius:100px">百度网盘资源：{{title}} <mt-badge size="normal" type="primary">{{videoUrlPass}}</mt-badge></mt-button>
+          <mt-button size="large" type="default" style="border-radius:100px">百度网盘资源：{{title}} <mt-badge size="normal" type="primary">密码：{{videoUrlPass}}</mt-badge></mt-button>
         </a>
       </div>
       <div class="baidu-sources">
@@ -46,7 +46,6 @@
 <script>
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
-import { Indicator } from 'mint-ui';
 import { getMoviesID } from '../../api/api'
 export default {
   // name: 'videos',
@@ -64,7 +63,7 @@ export default {
     }
   },
   created: function () {
-    Indicator.close();
+
   },
   methods: {
     moviesMessage(){

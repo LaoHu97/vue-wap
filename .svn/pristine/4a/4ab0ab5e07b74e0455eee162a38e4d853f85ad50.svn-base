@@ -6,7 +6,9 @@
         <img :src="item.topImg" alt="" width="100%" height="160px;" v-on:click.stop="clickVideoList(item.id)">
       </mt-swipe-item>
     </mt-swipe>
-    <p class="waring"><i class="iconfont">&#xe76d;</i> 本站仅供测试和学习交流，请大家支持正版！</p>
+    <div class="page-search">
+      <mt-search autofocus v-model="searchValue" :result="filterResult"></mt-search>
+    </div>
     <ul class="page-infinite-list">
       <li v-for="item in list" :key="item.id" class="page-infinite-listitem" v-on:click.stop="clickVideoList(item.id)">
         <div class="item-images">
@@ -32,7 +34,7 @@
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading';
-import { Toast, Indicator } from 'mint-ui';
+import { Toast } from 'mint-ui';
 import { getUserListPage, getMoviesTopImages } from '../../api/api';
 export default {
     components: {
@@ -68,7 +70,6 @@ export default {
     },
     //点击视频列表
     clickVideoList(scope){
-      Indicator.open('加载中...');
       this.$router.push({ path: '/details', query: { id: scope }});
     },
     //上划加载更多
@@ -160,7 +161,7 @@ li {
   text-overflow:ellipsis;
 }
 .item-bottom p{
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bolder;
   margin: 6px 0;
   display:block;
@@ -190,16 +191,5 @@ li {
 .mint-search{
   height: 100%;
 }
-.waring{
-  line-height: 1.5;
-  background-color: #ffc107;
-  color: #fff;
-  font-size: 14px;
 
-}
-.waring i{
-  padding-left: 15px;
-  vertical-align: middle;
-  display:inline-block;
-}
 </style>

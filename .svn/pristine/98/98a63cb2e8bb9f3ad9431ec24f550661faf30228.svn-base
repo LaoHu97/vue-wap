@@ -1,0 +1,28 @@
+<template>
+  <div class="not-found">
+    <img src="http://video47.oss-cn-beijing.aliyuncs.com/404.png" alt="404" class="not-found-img">
+    <p>很抱歉，你来晚了一步，它已经任性的消失了...</br>你要坚强些，继续发掘别的页面去吧!</p>
+    <h1>404</h1>
+    <router-link :to="{ path: 'index' }">
+      <mt-button size="small" to="{ path: 'index' }">返回首页</mt-button>
+    </router-link>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+  .not-found{
+    text-align: center;
+    margin-top: 25px;
+  }
+  .not-found-img{
+    width: 200px;
+  }
+  h1{
+    font-size: 56px;
+    color: #1951fc;
+  }
+  p{
+    font-size: 14px;
+    line-height: 28px;
+  }
+</style>

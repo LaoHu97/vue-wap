@@ -5,9 +5,9 @@
     <link rel="shortcut icon" href="https://video47.oss-cn-beijing.aliyuncs.com/favicon.ico"/>
     <link rel="bookmark" href="https://video47.oss-cn-beijing.aliyuncs.com/favicon.ico"/>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <title>老47电影网,高评分电影、美剧,百度云资源,百度网盘资源,高清电影、美剧下载</title>
-    <meta name="keywords" content="高清百度云下载,高评分电影、美剧,百度云,百度网盘,电影、美剧在线观看,老47电影网" />
-    <meta name="description" content="老47电影网,这是一个分享最新电影、美剧的网站,你可以在这里免费下载最新电影、美剧、经典大片,高评分电影,海量资源等你发现。" />
+    <title>老47电影网,高评分电影,百度云资源,百度网盘资源,高清电影下载</title>
+    <meta name="keywords" content="高清百度云下载,高评分电影,百度云,百度网盘,电影在线观看,老47电影网" />
+    <meta name="description" content="老47电影网,这是一个分享最新电影的网站,你可以在这里免费下载最新电影、经典大片,高评分电影,海量资源等你发现。" />
     <script>
       var _hmt = _hmt || [];
       (function() {
@@ -19,6 +19,10 @@
     </script>
   </head>
   <body>
+    <!-- <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/mint-ui/2.2.9/actionsheet/index.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/2.3.0/vue-router.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.15.3/axios.min.js"></script> -->
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

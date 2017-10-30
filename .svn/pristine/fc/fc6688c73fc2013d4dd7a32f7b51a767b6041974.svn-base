@@ -23,8 +23,8 @@ let routes = [
       path: '/',
       component: Home,
       children: [
-        { path: 'tab1',name: '美剧', component: Tab1 },
-        { path: 'tab2',name: '美剧详情', component: Tab2 },
+        { path: 'tab1',name: 'R级', component: Tab1 },
+        { path: 'tab2',name: 'R级详情', component: Tab2 },
       ]
   },{
       path: '*',

@@ -42,7 +42,7 @@
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 import { Indicator } from 'mint-ui';
-import { getMoviesID } from '../../api/api'
+import { getRestrictedID } from '../../api/api'
 export default {
   // name: 'videos',
   data(){
@@ -66,7 +66,7 @@ export default {
       let para = {
         id:this.$route.query.id
       }
-      getMoviesID(para).then((res)=>{
+      getRestrictedID(para).then((res)=>{
         let {status,message} = res;
         if (status == 200) {
           this.imageUrl = res.data.data.imageUrl;

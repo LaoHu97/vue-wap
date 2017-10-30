@@ -11,5 +11,3 @@ export const getMoviesID = params => { return axios.get(`${base}/api/getMoviesID
 export const getMoviesTopImages = params => { return axios.get(`${base}/api/getMoviesTopImages`, { params: params }); };
 
 export const getRestrictedListPage = params => { return axios.get(`${base}/api/getRestrictedListPage`, { params: params }); };
-
-export const getRestrictedID = params => { return axios.get(`${base}/api/getRestrictedID`, { params: params }); };

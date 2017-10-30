@@ -22,7 +22,7 @@
       </div>
       <div class="baidu-sources">
         <a :href="videoUrl">
-          <mt-button size="large" type="default" style="border-radius:100px">网盘资源：<span class="btn-class">{{title}}</span> <mt-badge v-if='videoUrlPass' size="normal" type="primary">{{videoUrlPass}}</mt-badge></mt-button>
+          <mt-button size="large" type="default" style="border-radius:100px">百度网盘资源：<span class="btn-class">{{title}}</span> <mt-badge v-if='videoUrlPass' size="normal" type="primary">{{videoUrlPass}}</mt-badge></mt-button>
         </a>
       </div>
       <hr></hr>

@@ -7,6 +7,7 @@
       </mt-swipe-item>
     </mt-swipe>
     <p class="waring"><i class="iconfont">&#xe76d;</i> 本站仅供测试和学习交流，请大家支持正版！</p>
+    <mt-search v-model="title"></mt-search>
     <ul class="page-infinite-list">
       <li v-for="item in list" :key="item.id" class="page-infinite-listitem" v-on:click.stop="clickVideoList(item.id)">
         <div class="item-images">
@@ -45,11 +46,14 @@ export default {
       list: [],
       searchValue:'',
       infiniteLoading:true,
-      wrapperHeight:''
+      wrapperHeight:'',
+      title:''
     }
   },
   computed: {
+    filterResult() {
 
+      }
   },
   created: function () {
     // this.openToast()
@@ -72,7 +76,7 @@ export default {
     //上划加载更多
     onInfinite(state) {
       let para = {
-          title:'',
+          title:this.title,
 					page: this.list.length / 9 + 1,
 					rows: 9
 			 };

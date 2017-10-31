@@ -49,7 +49,9 @@ export default {
     }
   },
   computed: {
+    filterResult() {
 
+      }
   },
   created: function () {
     // this.openToast()
